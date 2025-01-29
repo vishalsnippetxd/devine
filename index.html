@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0.3; URL=" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Creator - Divine Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://imgs.search.brave.com/FpJ2oZ7j_ivbkX-_fnXxIjn5QOcFDm8z60wRzyC3oGU/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3F1YXJlc3Bh/Y2UtY2RuLmNvbS9j/b250ZW50L3YxLzUy/NDg4M2I3ZTRiMDNm/Y2I3YzY0ZTI0Yy8x/Njg1MDQxNDgwMDM4/LUFXWU03WFhTWU5I/RzUzUEw0M0w2L1Nx/dWFyZXNwYWNlK0Zh/dmljb24uanBn" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7f5af0;
+            --secondary: #2cb67d;
+            --dark: #16161a;
+            --light: #fffffe;
+            --gradient: linear-gradient(45deg, var(--primary), var(--secondary));
+            --cosmic-shadow: 0 0 30px rgba(127, 90, 240, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Cosmic Background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, 
+                    rgba(127, 90, 240, 0.1) 0%, 
+                    rgba(18, 18, 18, 0) 60%),
+                linear-gradient(45deg, #16161a, #0a0a0c);
+            z-index: -2;
+        }
+
+        /* Divine Navigation */
+        .nav-god {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--cosmic-shadow);
+            z-index: 1000;
+        }
+
+        .nav-god a {
+            color: var(--light);
+            text-decoration: none;
+            position: relative;
+            font-weight: 300;
+            transition: 0.4s;
+        }
+
+        .nav-god a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: 0.4s;
+        }
+
+        .nav-god a:hover::after,
+        .nav-god a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-divine {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            background: var(--gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .hologram-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid rgba(127, 90, 240, 0.1);
+        }
+
+        .hologram-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--cosmic-shadow);
+        }
+
+        /* Contact Form */
+        .blackhole-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .quantum-input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(127, 90, 240, 0.2);
+            border-radius: 10px;
+            color: var(--light);
+            transition: 0.3s;
+        }
+
+        .quantum-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--cosmic-shadow);
+        }
+
+        /* Divine Button */
+        .btn-god {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        /* Particles Canvas */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .nav-god { padding: 1rem; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-bg"></div>
+    <canvas class="particles"></canvas>
+
+    <nav class="nav-god">
+        <a href="#home" class="active">Home</a>
+        <a href="#projects">Creations</a>
+        <a href="#about">Essence</a>
+        <a href="#contact">Channel</a>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero-divine">
+            <div class="hero-content">
+                <h1 class="hero-title">Cosmic Developer</h1>
+                <p class="hero-subtitle">Weaving Digital Realities Across the Quantum Web</p>
+                
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="celestial-main" style="padding: 100px 20px;">
+            <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Celestial Creations</h2>
+            <div class="projects-grid">
+                <div class="hologram-card">
+                    <h3>comming soon</h3>
+                    <p> coming soon...</p>
+                </div>
+                <div class="hologram-card">
+                    <h3>coming soon</h3>
+                    <p>coming soon...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="celestial-main" style="padding: 100px 20px;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 class="hero-title">Who I am?</h2>
+                <p style="font-size: 1.2rem; margin-top: 2rem;">
+                    Hi, I'm Vishal. I'm 14 years old and passionate about programming and technology. I love building websites, exploring AI, and working on projects that push my creativity. I’m always learning and experimenting with new tools, whether it's full-stack development or creating self-improvement content for students. My goal is to use my skills to become an entrepreneur and make an impact through coding. If there's something new to try or a challenge to tackle, I’m all in!
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="celestial-main" style="padding: 100px 20px;">
+            <div class="blackhole-form">
+                <form class="event-horizon">
+                    <input type="text" class="quantum-input" placeholder="Your Cosmic Signature">
+                    <input type="email" class="quantum-input" placeholder="Quantum Email Address">
+                    <textarea class="quantum-input" rows="5" placeholder="Transmit Message"></textarea>
+                    <button class="btn-god">Open Wormhole</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Quantum Particle System
+        class QuantumField {
+            constructor() {
+                this.canvas = document.querySelector('.particles');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.mouse = { x: null, y: null };
+                
+                this.init();
+                this.animate();
+                this.addEventListeners();
+            }
+
+            init() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+                this.createParticles(100);
+            }
+
+            createParticles(amount) {
+                for(let i = 0; i < amount; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        size: Math.random() * 2,
+                        speedX: Math.random() * 3 - 1.5,
+                        speedY: Math.random() * 3 - 1.5
+                    });
+                }
+            }
+
+            animate() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                this.particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    if(this.mouse.x && this.mouse.y) {
+                        const dx = this.mouse.x - particle.x;
+                        const dy = this.mouse.y - particle.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if(distance < 100) {
+                            particle.x += dx * 0.01;
+                            particle.y += dy * 0.01;
+                        }
+                    }
+
+                    this.drawParticle(particle);
+                });
+
+                requestAnimationFrame(() => this.animate());
+            }
+
+            drawParticle(particle) {
+                this.ctx.beginPath();
+                this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                this.ctx.fillStyle = `rgba(127, 90, 240, ${particle.size/2})`;
+                this.ctx.fill();
+            }
+
+            addEventListeners() {
+                window.addEventListener('resize', () => this.init());
+                window.addEventListener('mousemove', (e) => {
+                    this.mouse.x = e.clientX;
+                    this.mouse.y = e.clientY;
+                });
+            }
+        }
+
+        // Initialize Cosmic Features
+        document.addEventListener('DOMContentLoaded', () => {
+            new QuantumField();
+            
+            // Smooth scroll
+            document.querySelectorAll('.nav-god a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Active navigation
+            window.addEventListener('scroll', () => {
+                document.querySelectorAll('.nav-god a').forEach(link => {
+                    const section = document.querySelector(link.getAttribute('href'));
+                    if (section.offsetTop <= window.scrollY + 150 && 
+                        section.offsetTop + section.offsetHeight > window.scrollY + 150) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            });
+
+            // Form handling
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Message transmitted through the quantum field!');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
